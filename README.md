@@ -1,5 +1,7 @@
 # Javascript exercises
 
+(always wip)
+
 This repository contains a set of exercises to practice Javascript.
 
 1.- Given a list of numbers, return the sum of the first and last numbers in the list.
