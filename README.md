@@ -2,7 +2,7 @@
 
 This repository contains a set of exercises to practice Javascript.
 
-1 Given a list of numbers, return the sum of the first and last numbers in the list.
+1.- Given a list of numbers, return the sum of the first and last numbers in the list.
 
 <details>
 <summary>code</summary>
@@ -16,7 +16,7 @@ function sumFirstAndLast(numbers) {
 </details>
 <br/>
 
-2 Sort a list of numbers as a zigzag, this means that they must be ordered, first the largest, then the smallest, then the next largest and the next smallest, until the entire list is covered.
+2.- Sort a list of numbers as a zigzag, this means that they must be ordered, first the largest, then the smallest, then the next largest and the next smallest, until the entire list is covered.
 
 <details>
 <summary>code</summary>
@@ -36,7 +36,7 @@ function zigzag(numbers) {
 </details>
 <br/>
 
-3 Given a list of numbers, return the number of times that the number 7 appears in the list.
+3.- Given a list of numbers, return the number of times that the number 7 appears in the list.
 
 <details>
 <summary>code</summary>
@@ -50,7 +50,7 @@ function count7(numbers) {
 </details>
 <br/>
 
-4 Given a list of numbers, return the number of times that the number 7 appears in the list, but if the number 7 appears more than 3 times, return 3.
+4.- Given a list of numbers, return the number of times that the number 7 appears in the list, but if the number 7 appears more than 3 times, return 3.
 
 <details>
 <summary>code</summary>
@@ -65,7 +65,7 @@ function count7(numbers) {
 </details>
 <br/>
 
-5 Identify if a string is a palindrome. Thats means that the string is the same when read from left to right and from right to left.
+5.- Identify if a string is a palindrome. Thats means that the string is the same when read from left to right and from right to left.
 
 <details>
 <summary>code</summary>
@@ -79,7 +79,7 @@ function isPalindrome(string) {
 </details>
 <br/>
 
-6 Calculate the factorial of a number. The factorial of a number is the product of all the numbers from 1 to the number itself.
+6.- Calculate the factorial of a number. The factorial of a number is the product of all the numbers from 1 to the number itself.
 
 <details>
 <summary>code</summary>
@@ -94,7 +94,7 @@ function factorial(number) {
 </details>
 <br/>
 
-7 Calculate the fibonacci of a number, that is the sum of the previous two numbers, starting with 0 and 1.
+7.- Calculate the fibonacci of a number, that is the sum of the previous two numbers, starting with 0 and 1.
 
 <details>
 <summary>code</summary>
@@ -110,7 +110,7 @@ function fibonacci(number) {
 </details>
 <br/>
 
-8 Check if two strings are anagrams, that is, if they have the same letters.
+8.- Check if two strings are anagrams, that is, if they have the same letters.
 
 <details>
 <summary>code</summary>
@@ -126,7 +126,7 @@ function isAnagram(string1, string2) {
 </details>
 <br/>
 
-9 Having an array of string, return the string with the most characters.
+9.- Having an array of string, return the string with the most characters.
 
 <details>
 <summary>code</summary>
@@ -142,7 +142,7 @@ function longestString(strings) {
 </details>
 <br/>
 
-10 Return the letter most repeated in a string and the number of times it is repeated.
+10.- Return the letter most repeated in a string and the number of times it is repeated.
 
 <details>
 <summary>code</summary>
@@ -165,13 +165,23 @@ function mostRepeated(string) {
 </details>
 <br/>
 
-11
+11.- Find the most repeated letter in a string and the number of times it is repeated.
 
 <details>
 <summary>code</summary>
 
 ```js
-
+function mostRepeated(string) {
+  const letters = string.split('');
+  const lettersCount = letters.reduce((count, letter) => {
+    count[letter] = count[letter] ? count[letter] + 1 : 1;
+    return count;
+  }, {});
+  const mostRepeated = Object.keys(lettersCount).reduce(
+    (mostRepeated, letter) =>
+      lettersCount[letter] > lettersCount[mostRepeated] ? letter : mostRepeated
+  );
+  return [mostRepeated, lettersCount[mostRepeated]];
 }
 ```
 
