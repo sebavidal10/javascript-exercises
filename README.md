@@ -167,23 +167,92 @@ function mostRepeated(string) {
 </details>
 <br/>
 
-11.- Find the most repeated letter in a string and the number of times it is repeated.
+11.- Find the duplicates in an array of numbers.
 
 <details>
 <summary>code</summary>
 
 ```js
-function mostRepeated(string) {
-  const letters = string.split('');
-  const lettersCount = letters.reduce((count, letter) => {
-    count[letter] = count[letter] ? count[letter] + 1 : 1;
+function findDuplicates(numbers) {
+  const duplicates = [];
+  const numbersCount = numbers.reduce((count, number) => {
+    count[number] = count[number] ? count[number] + 1 : 1;
     return count;
   }, {});
-  const mostRepeated = Object.keys(lettersCount).reduce(
-    (mostRepeated, letter) =>
-      lettersCount[letter] > lettersCount[mostRepeated] ? letter : mostRepeated
-  );
-  return [mostRepeated, lettersCount[mostRepeated]];
+  Object.keys(numbersCount).forEach((number) => {
+    if (numbersCount[number] > 1) duplicates.push(number);
+  });
+  return duplicates;
+}
+```
+
+</details>
+<br/>
+
+12.- Write a function to show the current day and time in a format like this: 'Today is: Monday, and current time is 2:7:15'
+
+<details>
+<summary>code</summary>
+
+```js
+function currentDayAndTime() {
+  const date = new Date();
+  const day = date.getDay();
+  const dayName = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ][day];
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  return `Today is: ${dayName}, and current time is ${hours}:${minutes}:${seconds}`;
+}
+```
+
+</details>
+<br/>
+
+13.- Write a function to humanize numbers, that is, to convert a number into his ordinal representation. For example, 1 becomes 1st, 2 becomes 2nd, 3 becomes 3rd, 4 becomes 4th, and so on.
+
+<details>
+<summary>code</summary>
+
+```js
+function humanize(number) {
+  const lastDigit = number % 10;
+  const lastTwoDigits = number % 100;
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 13) return `${number}th`;
+  if (lastDigit === 1) return `${number}st`;
+  if (lastDigit === 2) return `${number}nd`;
+  if (lastDigit === 3) return `${number}rd`;
+  return `${number}th`;
+}
+```
+
+</details>
+<br/>
+
+14.- Create a function to implement a binary search algorithm. A binary search or half-interval search algorithm finds the position of a specified input value within an array sorted by key value.
+
+<details>
+<summary>code</summary>
+
+```js
+function binarySearch(array, value) {
+  let start = 0;
+  let end = array.length - 1;
+  while (start <= end) {
+    const middle = Math.floor((start + end) / 2);
+    if (array[middle] === value) return middle;
+    if (array[middle] < value) start = middle + 1;
+    else end = middle - 1;
+  }
+  return -1;
 }
 ```
 
