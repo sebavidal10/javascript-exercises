@@ -258,3 +258,46 @@ function binarySearch(array, value) {
 
 </details>
 <br/>
+
+15.- Function to detect if a number is prime.
+
+<details>
+<summary>code</summary>
+
+```js
+function isPrime(number) {
+  if (number < 2) return false;
+  if (number === 2) return true;
+  if (number % 2 === 0) return false;
+  for (let i = 3; i <= Math.sqrt(number); i += 2) {
+    if (number % i === 0) return false;
+  }
+  return true;
+}
+```
+
+</details>
+<br/>
+
+16.- Look this example, and then implement the function to return the same result.
+
+```js
+> take([1,2,3], 1)
+[2, 3]
+> take([1,2,3], 2)
+[3]
+> take([1,2,3])
+[2, 3]
+```
+
+<details>
+<summary>code</summary>
+
+```js
+function take(array, n = 1) {
+  return array.slice(n);
+}
+```
+
+</details>
+<br/>
