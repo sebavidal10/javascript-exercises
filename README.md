@@ -301,3 +301,50 @@ function take(array, n = 1) {
 
 </details>
 <br/>
+
+17.- Connect to poke-api (https://pokeapi.co/api/v2/pokemon?limit=100) and get the name of first 100 pokemons
+
+<details>
+<summary>code</summary>
+
+```js
+// connect to pokeapi and get the pokemons name only using vanilla js and fetch
+fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
+  .then((response) => response.json())
+  .then((data) => {
+    const pokemons = data.results.map((pokemon) => pokemon.name);
+    console.log(pokemons);
+  });
+```
+
+</details>
+
+18.- Connect to Rick and Morty API (https://rickandmortyapi.com/api/character) and get url image of 'Beth Smith'
+
+<details>
+<summary>code</summary>
+
+```js
+// connect to Rick and Morty API and get url for 'Beth Smith'
+fetch('https://rickandmortyapi.com/api/character')
+  .then((response) => response.json())
+  .then((data) => {
+    const beth = data.results.find(
+      (character) => character.name === 'Beth Smith'
+    );
+    console.log(beth.image);
+  });
+```
+
+</details>
+
+19.- Sort array list of name bye length
+
+<details>
+<summary>code</summary>
+
+```js
+const names = ['John', 'Harrison Ford', 'George', 'Jai', 'Peterson'];
+names.sort((a, b) => a.length - b.length);
+console.log(names);
+```
