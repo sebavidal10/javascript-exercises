@@ -348,3 +348,48 @@ const names = ['John', 'Harrison Ford', 'George', 'Jai', 'Peterson'];
 names.sort((a, b) => a.length - b.length);
 console.log(names);
 ```
+
+20.- Convert letters in a sentence to other letters, based in a hash and his position in the sentence
+
+<details>
+<summary>code</summary>
+
+```js
+const sentence = 'The quick brown fox jumps over the lazy dog';
+const hash = {
+  a: 'b',
+  b: 'c',
+  c: 'd',
+  d: 'e',
+  e: 'f',
+  f: 'g',
+  g: 'h',
+  h: 'i',
+  i: 'j',
+  j: 'k',
+  k: 'l',
+  l: 'm',
+  m: 'n',
+  n: 'o',
+  o: 'p',
+  p: 'q',
+  q: 'r',
+  r: 's',
+  s: 't',
+  t: 'u',
+  u: 'v',
+  v: 'w',
+  w: 'x',
+  x: 'y',
+  y: 'z',
+  z: 'a',
+};
+
+const newSentence = sentence
+  .split('')
+  .map((letter) => hash[letter] || letter)
+  .join('');
+console.log(newSentence);
+```
+
+</details>
