@@ -318,6 +318,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
 ```
 
 </details>
+<br/>
 
 18.- Connect to Rick and Morty API (https://rickandmortyapi.com/api/character) and get url image of 'Beth Smith'
 
@@ -337,6 +338,7 @@ fetch('https://rickandmortyapi.com/api/character')
 ```
 
 </details>
+<br/>
 
 19.- Sort array list of name bye length
 
@@ -348,6 +350,9 @@ const names = ['John', 'Harrison Ford', 'George', 'Jai', 'Peterson'];
 names.sort((a, b) => a.length - b.length);
 console.log(names);
 ```
+
+</details>
+<br/>
 
 20.- Convert letters in a sentence to other letters, based in a hash and his position in the sentence
 
@@ -393,3 +398,183 @@ console.log(newSentence);
 ```
 
 </details>
+<br/>
+
+21.- Implementa una función para calcular la suma de todos los números pares en una lista de números.
+
+<details>
+<summary>code</summary>
+
+```js
+function sumEven(numbers) {
+  return numbers.reduce(
+    (sum, number) => (number % 2 === 0 ? sum + number : sum),
+    0
+  );
+}
+```
+
+</details>
+<br/>
+
+22.- Crea una función que devuelva la mediana de una lista de números. La mediana es el número en el medio de una lista ordenada de números. Si la lista tiene un número impar de elementos, la mediana es el número en el medio. Si la lista tiene un número par de elementos, la mediana es el promedio de los dos números en el medio.
+
+<details>
+<summary>code</summary>
+
+```js
+function median(numbers) {
+  const sorted = numbers.sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
+}
+```
+
+</details>
+<br/>
+
+23.- Escribe una función que reciba una cadena de palabras y devuelva la longitud de la palabra más larga.
+
+<details>
+<summary>code</summary>
+
+```js
+function longestWordLength(sentence) {
+  const words = sentence.split(' ');
+  const lengths = words.map((word) => word.length);
+  return Math.max(...lengths);
+}
+```
+
+</details>
+<br/>
+
+24.- Implementa una función para convertir un número decimal en su equivalente binario.
+
+<details>
+<summary>code</summary>
+
+```js
+function decimalToBinary(decimal) {
+  return (decimal >>> 0).toString(2);
+}
+```
+
+</details>
+<br/>
+
+25.- Crea una función que devuelva verdadero si todas las letras en una cadena están en orden alfabético, de lo contrario, devuelve falso.
+
+<details>
+<summary>code</summary>
+
+```js
+function isInAlphabeticalOrder(string) {
+  for (let i = 0; i < string.length - 1; i++) {
+    if (string[i] > string[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+</details>
+<br/>
+
+26.- Escribe una función que devuelva el área de un triángulo dadas su base y altura.
+
+<details>
+<summary>code</summary>
+
+```js
+function triangleArea(base, height) {
+  return 0.5 * base * height;
+}
+```
+
+</details>
+<br/>
+
+27.- Implementa una función que determine si una cadena dada es un acrónimo (las letras iniciales de cada palabra forman la cadena).
+
+<details>
+<summary>code</summary>
+
+```js
+function isAcronym(word, acronym) {
+  const words = word.split(' ');
+  const acronymFromWords = words.map((word) => word[0]).join('');
+  return acronymFromWords.toLowerCase() === acronym.toLowerCase();
+}
+```
+
+</details>
+<br/>
+
+28.- Crea una función para calcular el promedio de una lista de números.
+
+<details>
+<summary>code</summary>
+
+```js
+function average(numbers) {
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+  return sum / numbers.length;
+}
+```
+
+</details>
+<br/>
+
+29.- Escribe una función que reciba una lista de nombres y devuelva una lista con solo los nombres que contienen la letra 'a'.
+
+<details>
+<summary>code</summary>
+
+```js
+function namesWithLetterA(names) {
+  return names.filter((name) => name.toLowerCase().includes('a'));
+}
+```
+
+</details>
+<br/>
+
+30.- Implementa una función que convierta un número romano en un número decimal.
+
+<details>
+<summary>code</summary>
+
+```js
+function romanToDecimal(roman) {
+  const romanNumerals = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let result = 0;
+  for (let i = 0; i < roman.length; i++) {
+    if (
+      i < roman.length - 1 &&
+      romanNumerals[roman[i]] < romanNumerals[roman[i + 1]]
+    ) {
+      result -= romanNumerals[roman[i]];
+    } else {
+      result += romanNumerals[roman[i]];
+    }
+  }
+
+  return result;
+}
+```
+
+</details>
+<br/>
